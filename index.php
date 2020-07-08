@@ -63,7 +63,7 @@ if (!is_siteadmin()) {
     require_capability('local/enrolstats:access_enrolstats', $catcontext);
 }
 $PAGE->set_context($catcontext);
-$PAGE->set_url(new moodle_url('/local/aac/enrols.php'));
+$PAGE->set_url(new moodle_url('/local/enrolstats/index.php'));
 $PAGE->set_pagetype('standard');
 $PAGE->set_pagelayout('admin');
 $PAGE->set_title(get_string('index_title', 'local_enrolstats'));
@@ -92,7 +92,7 @@ echo $OUTPUT->header();
 
 $output = '';
 $output .= html_writer::start_tag('div', array('class' => 'categorypicker'));
-$select = new single_select(new moodle_url('/local/aac/enrols.php'), 'categoryid',
+$select = new single_select(new moodle_url('/local/enrolstats/index.php'), 'categoryid',
         core_course_category::make_categories_list('local/enrolstats:access_enrolstats'),
         $category->id, 'Select', 'switchcategory');
 $select->set_label(get_string('categories') . ':');
