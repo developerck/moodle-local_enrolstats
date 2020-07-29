@@ -24,7 +24,6 @@
  */
 require_once('../../config.php');
 require_once($CFG->dirroot . '/course/lib.php');
-require_once($CFG->libdir . '/coursecatlib.php');
 
 $categoryid = optional_param("categoryid", 0, PARAM_INT);
 $page = optional_param("page", 0, PARAM_INT);
@@ -134,7 +133,6 @@ foreach ($courses as $c) {
    <td>$name</td>
         <td>$type</td>
                     <td>$l</td>
-                    $m
        </tr>
 HTML;
             $html[] = $str;

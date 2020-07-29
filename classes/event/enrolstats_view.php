@@ -41,7 +41,6 @@ class enrolstats_view extends \core\event\base {
      * Init method.
      */
     protected function init() {
-        $this->data['objecttable'] = 'local_enrolstats';
         $this->data['crud'] = 'r';
         $this->data['edulevel'] = self::LEVEL_OTHER;
     }
