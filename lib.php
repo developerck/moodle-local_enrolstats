@@ -29,16 +29,17 @@
  * @param navigation_node $navigation The navigation node to extend
  * @param context $coursecategorycontext The context of the course category
  */
-function local_enrolstats_extend_navigation_category_settings($navigation, $coursecategorycontext) {
+function local_enrolstats_extend_navigation_category_settings(navigation_node $navigation, context_coursecat $coursecategorycontext) {
     global $USER;
-    // The link to the learning plan page.
+   
     if (has_capability('local/enrolstats:access_enrolstats', $coursecategorycontext)) {
         $title = get_string('index_title', 'local_enrolstats');
-        $path = new moodle_url("/local/enrolstats/index.php", array('pagecontextid' => $coursecategorycontext->id));
+        $path = new moodle_url("/local/enrolstats/index.php", array('categoryid' =>   $coursecategorycontext->instanceid));
         $settingsnode = navigation_node::create($title, $path,
-                navigation_node::TYPE_SETTING, null, null);
+                navigation_node::TYPE_SETTING, null, null,new pix_icon('i/report', ''));
         if (isset($settingsnode)) {
             $navigation->add_node($settingsnode);
         }
     }
 }
+
