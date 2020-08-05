@@ -84,8 +84,8 @@ $options['recursive'] = true;
 $options['offset'] = $page * $perpage;
 $options['limit'] = $perpage;
 
-$courses = coursecat::get($categoryid)->get_courses($options);
-$coursecount = coursecat::get($categoryid)->get_courses_count(array('recursive' => true));
+$courses = core_course_category::get($categoryid)->get_courses($options);
+$coursecount = core_course_category::get($categoryid)->get_courses_count(array('recursive' => true));
 
 echo $OUTPUT->header();
 

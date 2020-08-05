@@ -43,6 +43,7 @@ class enrolstats_view extends \core\event\base {
     protected function init() {
         $this->data['crud'] = 'r';
         $this->data['edulevel'] = self::LEVEL_OTHER;
+        $this->data['objecttable'] = 'course_categories';
     }
 
     /**
