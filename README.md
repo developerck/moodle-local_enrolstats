@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/developerck/moodle-local_enrolstats.svg?branch=master)](https://travis-ci.com/developerck/moodle-local_enrolstats)
+
 
 # enrolstats #
 This is a moodle local plugin . It will work for moodle  version > 3.5, however, you can try with modole above than 2.7
