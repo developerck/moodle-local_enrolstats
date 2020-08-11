@@ -3,6 +3,7 @@ language: php
 services:
   - mysql
   - docker
+  - postgresql
 
 cache:
   directories:
