@@ -93,7 +93,7 @@ $output = '';
 $output .= html_writer::start_tag('div', array('class' => 'categorypicker'));
 $select = new single_select(new moodle_url('/local/enrolstats/index.php'), 'categoryid',
         core_course_category::make_categories_list('local/enrolstats:access_enrolstats'),
-        $category->id, 'Select', 'switchcategory');
+        $category->id, get_string('select', 'local_enrolstats'), 'switchcategory');
 $select->set_label(get_string('categories') . ':');
 $output .= $OUTPUT->render($select);
 $output .= html_writer::end_tag('div');
@@ -126,7 +126,7 @@ foreach ($courses as $c) {
             $l = $OUTPUT->single_button(new moodle_url('/user/index.php', array('id' => $c->id, 'contextid' => $coursecontext->id,
                 'unified-filters[]' => '1:'
                 . $enrolinstance->id, 'unified-filter-submitted' => 1)),
-                    ' Active(' . $acount . ') Suspended(' . $scount . ') ');
+                    get_string('index_active', 'local_enrolstats'). ' (' . $acount . ') Suspended(' . $scount . ') ');
 
             $str = <<<HTML
   <tr>

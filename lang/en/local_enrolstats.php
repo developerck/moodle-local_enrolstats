@@ -27,8 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['enrolstats:access_enrolstats'] = 'Enrolment Stats';
 $string['pluginname'] = 'Enrol Stats';
-$string['event_enrolrequest_view'] = 'Enrolstats Viewed';
+$string['event_enrolrequest_view'] = 'Enrolstats viewed';
 $string['index_title'] = 'Enrolment Dashboard';
 $string['index_enrolled'] = 'Enrolled';
 $string['index_active'] = 'Active';
 $string['index_suspended'] = 'Suspended';
+$string['select'] = 'Select';
+$string['privacy:metadata'] = 'The "Enrolment Stats Plugin" only displays existing data and does not store any user data.';
