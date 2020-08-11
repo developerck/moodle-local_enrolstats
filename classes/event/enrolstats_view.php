@@ -61,7 +61,7 @@ class enrolstats_view extends \core\event\base {
      * @return string
      */
     public function get_description() {
-        return "The user with id '{$this->userid}' has vieewed the Enrol Stats Report. Other info : " .
+        return get_string('event_enrolrequest_description', 'local_enrolstats', $this->userid) .
                var_export($this->other, 1);
     }
 }
