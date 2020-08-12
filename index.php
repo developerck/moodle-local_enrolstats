@@ -101,7 +101,8 @@ echo $output;
 echo '<br/>';
 $table = new html_table();
 $table->attributes['class'] = 'table table-bordered table-striped';
-$table->head = array('Course', 'Total Student', 'Stats');
+$table->head = array(get_string('table_head_course', 'local_enrolstats'), get_string('table_head_student', 'local_enrolstats'),
+    get_string('table_head_stats', 'local_enrolstats'));
 $enrols = enrol_get_plugins(true);
 $siteadmin = 0;
 if (is_siteadmin()) {
@@ -126,7 +127,8 @@ foreach ($courses as $c) {
             $l = $OUTPUT->single_button(new moodle_url('/user/index.php', array('id' => $c->id, 'contextid' => $coursecontext->id,
                 'unified-filters[]' => '1:'
                 . $enrolinstance->id, 'unified-filter-submitted' => 1)),
-                    get_string('index_active', 'local_enrolstats'). ' (' . $acount . ') Suspended(' . $scount . ') ');
+                    get_string('index_active', 'local_enrolstats'). ' (' . $acount . ')'. " | ".
+                    get_string('index_suspended', 'local_enrolstats').' (' . $scount . ') ');
 
             $str = <<<HTML
   <tr>

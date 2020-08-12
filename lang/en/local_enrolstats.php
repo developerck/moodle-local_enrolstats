@@ -35,3 +35,6 @@ $string['index_active'] = 'Active';
 $string['index_suspended'] = 'Suspended';
 $string['select'] = 'Select';
 $string['privacy:metadata'] = 'The "Enrol Stats" plugin only displays existing data and does not store any user data.';
+$string['table_head_course'] = 'Course';
+$string['table_head_student'] = 'Users';
+$string['table_head_stats'] = 'Stats';
