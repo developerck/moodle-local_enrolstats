@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_enrolstats';
-$plugin->release = '0.4.0';
+$plugin->release = '0.5.0';
 $plugin->version = 2020063000;
 $plugin->requires = 2018051700;
 $plugin->maturity = MATURITY_ALPHA;
