@@ -24,10 +24,11 @@
  */
 require_once('../../config.php');
 require_once($CFG->dirroot . '/course/lib.php');
-
+require_once($CFG->dirroot . '/local/enrolstats/locallib.php');
 $categoryid = optional_param("categoryid", 0, PARAM_INT);
 $page = optional_param("page", 0, PARAM_INT);
 $perpage = optional_param("perpage", 10, PARAM_INT);
+$export = optional_param("export", '', PARAM_ALPHA);
 
 $startlimit = $page * $perpage;
 
@@ -61,6 +62,14 @@ if ($category->id) {
 if (!is_siteadmin()) {
     require_capability('local/enrolstats:access_enrolstats', $catcontext);
 }
+
+
+if ($export) {
+    local_enrolstats_download_stats($export, $categoryid);
+    exit;
+}
+
+
 $PAGE->set_context($catcontext);
 $PAGE->set_url(new moodle_url('/local/enrolstats/index.php'));
 $PAGE->set_pagetype('standard');
@@ -98,16 +107,17 @@ $select->set_label(get_string('categories') . ':');
 $output .= $OUTPUT->render($select);
 $output .= html_writer::end_tag('div');
 echo $output;
+echo html_writer::start_div('export', array("style" => "float:right"));
+echo $OUTPUT->download_dataformat_selector(get_string('download', 'local_enrolstats'),
+        '/local/enrolstats/index.php', 'export', array("categoryid" => $categoryid));
+echo html_writer::end_div();
 echo '<br/>';
 $table = new html_table();
 $table->attributes['class'] = 'table table-bordered table-striped';
 $table->head = array(get_string('table_head_course', 'local_enrolstats'), get_string('table_head_student', 'local_enrolstats'),
     get_string('table_head_stats', 'local_enrolstats'));
 $enrols = enrol_get_plugins(true);
-$siteadmin = 0;
-if (is_siteadmin()) {
-    $siteadmin = 1;
-}
+
 foreach ($courses as $c) {
 
     $url = new moodle_url("/course/view.php", array("id" => $c->id));
@@ -158,10 +168,12 @@ HTML;
     $table->data[] = array($link, $l1, $htmlstr);
 }
 
-echo html_writer::table($table);
 $paginationurl = new moodle_url("/local/enrolstats/index.php", array("id" => $category->id,
     'page' => $page, 'perpage' => $perpage));
 echo $OUTPUT->paging_bar($coursecount, $page, $perpage, $paginationurl);
 
+echo html_writer::table($table);
+
+echo $OUTPUT->paging_bar($coursecount, $page, $perpage, $paginationurl);
 
 echo $OUTPUT->footer();

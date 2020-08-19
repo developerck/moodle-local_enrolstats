@@ -38,3 +38,7 @@ $string['privacy:metadata'] = 'The "Enrol Stats" plugin only displays existing d
 $string['table_head_course'] = 'Course';
 $string['table_head_student'] = 'Users';
 $string['table_head_stats'] = 'Stats';
+$string['table_head_category'] = 'Category';
+$string['table_head_enrol_method'] = 'Enrolment Method';
+$string['table_head_enrol_instance'] = 'Instance Name';
+$string['download'] = 'Download Report';
