@@ -70,7 +70,7 @@ function local_enrolstats_download_stats($dataformat, $categoryid) {
     $cats = array();
     $options = [];
     $options['recursive'] = true;
-    $courses = coursecat::get($categoryid)->get_courses($options);
+    $courses = core_course_category::get($categoryid)->get_courses($options);
     $cats = array();
     foreach ($courses as $c) {
         if (!array_key_exists($c->category, $cats)) {
