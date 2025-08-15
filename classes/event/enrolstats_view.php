@@ -23,9 +23,6 @@
  */
 
 namespace local_enrolstats\event;
-
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * The view event class.
  *
